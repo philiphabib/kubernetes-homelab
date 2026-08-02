@@ -1,49 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  annotations:
-    meta.helm.sh/release-name: nginx
-    meta.helm.sh/release-namespace: web
-    metallb.io/ip-allocated-from-pool: default-pool
-  creationTimestamp: "2026-07-13T21:28:04Z"
-  labels:
-    app.kubernetes.io/instance: nginx
-    app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/name: nginx
-    app.kubernetes.io/version: 1.31.2
-    helm.sh/chart: nginx-25.0.13
   name: nginx
   namespace: web
-  resourceVersion: "50936"
-  uid: 0594cbfb-4e0e-46a8-ad87-d8dec3188fea
 spec:
-  allocateLoadBalancerNodePorts: true
-  clusterIP: 10.102.237.155
-  clusterIPs:
-  - 10.102.237.155
-  externalTrafficPolicy: Cluster
-  internalTrafficPolicy: Cluster
-  ipFamilies:
-  - IPv4
-  ipFamilyPolicy: SingleStack
-  ports:
-  - name: http
-    nodePort: 31764
-    port: 80
-    protocol: TCP
-    targetPort: http
-  - name: https
-    nodePort: 31790
-    port: 443
-    protocol: TCP
-    targetPort: https
   selector:
-    app.kubernetes.io/instance: nginx
-    app.kubernetes.io/name: nginx
-  sessionAffinity: None
-  type: LoadBalancer
-status:
-  loadBalancer:
-    ingress:
-    - ip: 192.168.122.230
-      ipMode: VIP
+    app: nginx
+  ports:
+  - port: 80
+    targetPort: 80
