@@ -1,0 +1,48 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: telecom-platform
+  namespace: argocd
+
+spec:
+  generators:
+    - list:
+        elements:
+          - name: free5gc
+            repoURL: https://github.com/philiphabib/free5gc-cloud.git
+            revision: main
+            path: .
+            namespace: free5gc
+
+          - name: telecom-cloud-platform
+            repoURL: https://github.com/philiphabib/telecom-cloud-platform.git
+            revision: main
+            path: deploy/helm/telecom-cloud-platform
+            namespace: telecom-cloud
+
+  template:
+    metadata:
+      name: '{{name}}'
+
+    spec:
+      project: default
+
+      source:
+        repoURL: '{{repoURL}}'
+        targetRevision: '{{revision}}'
+        path: '{{path}}'
+
+        helm:
+          releaseName: '{{name}}'
+
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{namespace}}'
+
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+
+        syncOptions:
+          - CreateNamespace=true
