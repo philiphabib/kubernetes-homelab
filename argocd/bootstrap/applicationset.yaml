@@ -8,12 +8,6 @@ spec:
   generators:
     - list:
         elements:
-          - name: free5gc
-            repoURL: https://github.com/philiphabib/free5gc-cloud.git
-            revision: main
-            path: .
-            namespace: free5gc
-
           - name: telecom-cloud-platform
             repoURL: https://github.com/philiphabib/telecom-cloud-platform.git
             revision: main
