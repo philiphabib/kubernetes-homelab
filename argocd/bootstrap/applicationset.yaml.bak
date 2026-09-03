@@ -8,16 +8,17 @@ spec:
   generators:
     - list:
         elements:
+          - name: free5gc
+            repoURL: https://github.com/philiphabib/free5gc-cloud.git
+            revision: main
+            path: .
+            namespace: free5gc
+
           - name: telecom-cloud-platform
             repoURL: https://github.com/philiphabib/telecom-cloud-platform.git
             revision: main
             path: deploy/helm/telecom-cloud-platform
             namespace: telecom-cloud
-        #  - name: open5gs
-         #   repoURL: https://github.com/philiphabib/open5gs-gitops.git
-          #  revision: main
-           # path: deploy
-            #namespace: open5gs
 
   template:
     metadata:
