@@ -13,11 +13,20 @@ spec:
             revision: main
             path: deploy/helm/telecom-cloud-platform
             namespace: telecom-cloud
-        #  - name: open5gs
-         #   repoURL: https://github.com/philiphabib/open5gs-gitops.git
-          #  revision: main
-           # path: deploy
-            #namespace: open5gs
+
+          # Open5GS 5G Core
+          - name: open5gs
+            repoURL: https://github.com/philiphabib/open5gs-gitops.git
+            revision: main
+            path: .
+            namespace: open5gs
+
+          # IMS
+          - name: ims
+            repoURL: https://github.com/philiphabib/ims-gitops.git
+            revision: main
+            path: .
+            namespace: open5gs
 
   template:
     metadata:
