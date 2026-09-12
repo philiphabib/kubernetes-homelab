@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: open5gs
+  namespace: argocd
+
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/philiphabib/open5gs-gitops.git
+    targetRevision: main
+    path: .
+    helm:
+      releaseName: open5gs
+      valueFiles:
+        - values-5g.yaml
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: open5gs
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+    syncOptions:
+      - CreateNamespace=true
