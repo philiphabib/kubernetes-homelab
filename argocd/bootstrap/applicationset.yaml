@@ -20,11 +20,11 @@ spec:
             path: .
             namespace: open5gs
           # N3IWF
-          - name: n3iwf
-            repoURL: https://github.com/philiphabib/n3iwf-gitops.git
-            revision: main
-            path: .
-            namespace: n3iwf
+         # - name: n3iwf
+          #  repoURL: https://github.com/philiphabib/n3iwf-gitops.git
+           # revision: main
+           # path: .
+           # namespace: n3iwf
 
   template:
     metadata:
