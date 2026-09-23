@@ -13,18 +13,20 @@ spec:
             revision: main
             path: deploy/helm/telecom-cloud-platform
             namespace: telecom-cloud
-          # Open5GS 5G Core
+            valuesFile: values.yaml          # ← this repo uses values.yaml
           - name: open5gs
             repoURL: https://github.com/philiphabib/open5gs-gitops.git
             revision: main
             path: .
             namespace: open5gs
-          # N3IWF
-         # - name: n3iwf
-         #   repoURL: https://github.com/philiphabib/n3iwf-gitops.git
-         #   revision: main
-          #  path: .
-           # namespace: n3iwf
+            valuesFile: values-5g.yaml       # ← this repo uses values-5g.yaml
+          # N3IWF (currently disabled)
+          # - name: n3iwf
+          #   repoURL: https://github.com/philiphabib/n3iwf-gitops.git
+          #   revision: main
+          #   path: .
+          #   namespace: n3iwf
+          #   valuesFile: values-5g.yaml
 
   template:
     metadata:
@@ -41,7 +43,7 @@ spec:
         helm:
           releaseName: '{{name}}'
           valueFiles:
-            - values-5g.yaml
+            - '{{valuesFile}}'
 
       destination:
         server: https://kubernetes.default.svc
