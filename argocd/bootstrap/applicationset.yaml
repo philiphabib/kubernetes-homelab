@@ -14,12 +14,12 @@ spec:
             path: deploy/helm/telecom-cloud-platform
             namespace: telecom-cloud
             valuesFile: values.yaml          # ← this repo uses values.yaml
-          - name: open5gs
-            repoURL: https://github.com/philiphabib/open5gs-gitops.git
-            revision: main
-            path: .
-            namespace: open5gs
-            valuesFile: values-5g.yaml       # ← this repo uses values-5g.yaml
+         # - name: open5gs
+         #   repoURL: https://github.com/philiphabib/open5gs-gitops.git
+        #    revision: main
+         #   path: .
+         #   namespace: open5gs
+          #  valuesFile: values-5g.yaml       # ← this repo uses values-5g.yaml
           # N3IWF (currently disabled)
           # - name: n3iwf
           #   repoURL: https://github.com/philiphabib/n3iwf-gitops.git
