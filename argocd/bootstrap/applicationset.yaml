@@ -17,7 +17,7 @@ spec:
           - name: telecom-cloud-platform
             repoURL: https://github.com/philiphabib/free5gc-helm.git
             revision: main
-            path: .
+            path: charts/free5gc
             namespace: free5gc
             valuesFile: values.yaml
          # - name: open5gs
