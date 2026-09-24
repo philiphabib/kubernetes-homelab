@@ -14,6 +14,12 @@ spec:
             path: deploy/helm/telecom-cloud-platform
             namespace: telecom-cloud
             valuesFile: values.yaml          # ← this repo uses values.yaml
+          - name: telecom-cloud-platform
+            repoURL: https://github.com/philiphabib/free5gc-helm.git
+            revision: main
+            path: .
+            namespace: free5gc
+            valuesFile: values.yaml
          # - name: open5gs
          #   repoURL: https://github.com/philiphabib/open5gs-gitops.git
         #    revision: main
