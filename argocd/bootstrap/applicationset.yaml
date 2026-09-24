@@ -19,7 +19,9 @@ spec:
             revision: main
             path: charts/free5gc
             namespace: free5gc
-            valuesFile: values.yaml
+            valuesFile:
+              - values.yaml
+              - values-override.yaml
          # - name: open5gs
          #   repoURL: https://github.com/philiphabib/open5gs-gitops.git
         #    revision: main
